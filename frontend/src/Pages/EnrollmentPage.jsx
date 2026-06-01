@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import BackButton from "../components/BackButton";
 import "./EnrollmentPage.css";
-const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
+// const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
+const API_URL = import.meta.env.VITE_API_URL || "https://k-shala.onrender.com";
 
 const defaultCourseFallback = {
   title: "Enrollment",
@@ -151,24 +152,45 @@ const EnrollmentPage = () => {
     form.heardAbout.trim() &&
     courseTitle &&
     form.terms;
+
+
+
   const handleSubmit = async (e) =>{
     e.preventDefault();
     console.log("FORM DATA:", form);
     if(!canSubmit) return;
 
+
     try {
 
+      console.log("API_URL =", API_URL);
+      console.log("Calling:", `${API_URL}/api/enroll`);
+
       const response = await fetch(`${API_URL}/api/enroll`, {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json",
-  },
-  body: JSON.stringify(form),
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
+                  body: JSON.stringify(form),
 });
 
-const data = await response.json();
-console.log("Status:", response.status);
-console.log("Response:", data);
+      // const data = await response.json();
+
+      const text = await response.text();
+
+      console.log("Raw Response:", text);
+
+      let data = {};
+      try {
+        data = JSON.parse(text);
+      } catch (e) {
+        console.error("Invalid JSON:", text);
+      }
+      console.log("Status:", response.status);
+      console.log("Response:", data);
+
+
+
 if (response.ok && data.success) {
   setSubmitted(true);
   // alert(data.message);

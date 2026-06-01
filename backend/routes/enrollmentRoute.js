@@ -5,54 +5,32 @@ const Enrollment = require("../db/Enrollment");
 
 // CREATE ENROLLMENT
 router.post("/enroll", async (req, res) => {
+  console.log("========== NEW ENROLLMENT ==========");
   console.log("BODY RECEIVED:", req.body);
 
   try {
     const enrollment = new Enrollment(req.body);
 
-     // ADD THESE LOGS HERE
-    console.log("Qualification:", req.body.highestQualification);
-    console.log(
-      "Schema Enum:",
-      Enrollment.schema.path("highestQualification").enumValues
-    );
-
     const savedEnrollment = await enrollment.save();
 
-    console.log("ENROLLMENT SAVED:", savedEnrollment);
+    console.log("ENROLLMENT SAVED:", savedEnrollment._id);
 
-    return res.status(201).json({
+    const response = {
       success: true,
       message: "Enrollment Submitted Successfully",
       data: savedEnrollment,
-    });
+    };
+
+    console.log("SENDING RESPONSE:", response);
+
+    return res.status(201).json(response);
 
   } catch (error) {
-
-    console.error("ENROLLMENT ERROR:");
-    console.error(error);
-
-    // Duplicate email
-    if (error.code === 11000) {
-      return res.status(400).json({
-        success: false,
-        message: "This email is already enrolled.",
-      });
-    }
-
-    // Mongoose Validation Error
-    if (error.name === "ValidationError") {
-      return res.status(400).json({
-        success: false,
-        message: error.message,
-        errors: error.errors,
-      });
-    }
+    console.error("ENROLLMENT ERROR:", error);
 
     return res.status(500).json({
       success: false,
       message: error.message,
-      stack: process.env.NODE_ENV === "development" ? error.stack : undefined,
     });
   }
 });

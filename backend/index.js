@@ -14,7 +14,7 @@ require("dotenv").config();
 // APP
 const app = express();
 
-
+app.set("trust proxy", true);
 // =============================
 // MIDDLEWARE
 // =============================
@@ -22,8 +22,11 @@ const app = express();
 app.use(
   cors({
     origin: "*",
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
   })
 );
+console.log("Trust Proxy:", app.get("trust proxy"));
 
 app.use(express.json());
 
