@@ -1275,158 +1275,134 @@ body {
   padding: 8px;
 }
 
-/* store-btn used as <a> now */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* DOWNLOAD BUTTON WRAPPER */
+.download-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  max-width: 300px;
+
+  margin: 0 auto;
+
+  gap: 24px;
+}
+
 /* STORE BUTTON */
 .store-btn {
   width: 100%;
-  max-width: 260px;
+  height: 95px;
 
   display: flex;
+  justify-content: center;
   align-items: center;
-  justify-content: flex-start;
 
-  gap: 14px;
-
-  padding: 14px 18px;
-
-  border-radius: 16px;
-
-  background: rgba(255, 255, 255, 0.06);
-
-  border: 1px solid rgba(255, 122, 0, 0.25);
+  padding: 0;
 
   text-decoration: none;
 
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease,
-    border-color 0.3s ease;
+  border-radius: 20px;
+
+  background: rgba(255,255,255,0.05);
+
+  border: 1px solid rgba(255,122,0,0.25);
 
   backdrop-filter: blur(10px);
-
   -webkit-backdrop-filter: blur(10px);
+
+  transition: all 0.3s ease;
 }
 
-/* HOVER */
 .store-btn:hover {
   transform: translateY(-4px);
 
   border-color: #00cfff;
 
   box-shadow:
-    0 0 20px rgba(255, 122, 0, 0.18),
-    0 0 30px rgba(0, 207, 255, 0.12);
+    0 0 20px rgba(255,122,0,0.15),
+    0 0 30px rgba(0,207,255,0.12);
 }
 
-/* ICON */
+/* IMAGE */
 .store-btn img {
-  width: 150px;
+  width: 210px;
+  max-width: 80%;
+
   height: auto;
 
-  object-fit: contain;
-
   display: block;
-}
-.store-btn {
-  padding: 18px;
-
-  justify-content: center;
-}
-
-/* TEXT CONTAINER */
-.store-btn div {
-  display: flex;
-  flex-direction: column;
-}
-
-/* SMALL TEXT */
-.store-btn small {
-  font-size: 11px;
-
-  color: #a1a1aa;
-
-  margin-bottom: 2px;
-}
-
-/* TITLE */
-.store-btn h4 {
-  font-size: 17px;
-
-  color: #ffffff;
-
-  font-weight: 700;
-
-  line-height: 1.2;
 }
 
 /* TABLET */
 @media (max-width: 768px) {
+  .download-right {
+    max-width: 350px;
+    gap: 18px;
+  }
 
   .store-btn {
-    max-width: 100%;
+    height: 82px;
+  }
 
-    padding: 13px 16px;
+  .store-btn img {
+    width: 180px;
+  }
+}
 
+/* MOBILE */
+@media (max-width: 480px) {
+  .download-right {
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .store-btn {
+    height: 72px;
     border-radius: 14px;
   }
 
   .store-btn img {
-    width: 38px;
-    height: 38px;
+    width: 160px;
   }
-
-  .store-btn h4 {
-    font-size: 16px;
-  }
-
 }
-/* ================= MOBILE VIEW ================= */
-@media (max-width: 480px) {
 
-  .download-right {
-    width: 100%;
 
-    display: flex;
-    flex-direction: column;
 
-    align-items: center;
 
-    gap: 14px;
-  }
 
-  .store-btn {
-    width: auto;
 
-    padding: 0;
 
-    background: transparent;
 
-    border: none;
 
-    box-shadow: none;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
 
-  .store-btn:hover {
-    transform: scale(1.03);
 
-    box-shadow: none;
-  }
 
-  .store-btn img {
-    width: 170px;
 
-    height: auto;
 
-    display: block;
 
-    object-fit: contain;
-  }
 
-}
+
 /* ==================== FOOTER ==================== */
 
 .footer-section {

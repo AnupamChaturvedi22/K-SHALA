@@ -493,26 +493,36 @@ const Home = () => {
 
 
 
-        <button className="store-btn">
-                               
-      <a href="https://play.google.com/store/apps/details?id=com.kshetrapatikshala" target="_blank" rel="noopener noreferrer">
-             <img
-  src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
-  alt="Google Play"
-/>
-      </a>
-      </button>
 
-        <button className="store-btn">        
-          <div>      
-                <a href="https://apps.apple.com/in/app/k-shala/id6738890750" target="_blank" rel="noopener noreferrer">
-                        <img
-  src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
-  alt="App Store"
-/>
-                </a>          
-          </div>
-        </button>
+
+<div className="download-right">
+  <a
+    href="https://play.google.com/store/apps/details?id=com.kshetrapatikshala"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="store-btn"
+  >
+    <img
+      src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+      alt="Google Play"
+    />
+  </a>
+
+  <a
+    href="https://apps.apple.com/in/app/k-shala/id6738890750"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="store-btn"
+  >
+    <img
+      src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+      alt="App Store"
+    />
+  </a>
+</div>
+
+
+
 
 
 
