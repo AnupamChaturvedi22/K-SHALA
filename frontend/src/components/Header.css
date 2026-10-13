@@ -12,7 +12,7 @@ nav.navbar {
   align-items: center;
   position: relative;
   z-index: 100;
-  background: var(--nav-glass);
+  background: var(--nav-glass, rgba(5, 8, 22, 0.72));
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(255, 122, 0, 0.18);
@@ -55,7 +55,7 @@ nav.navbar .logo-img {
 nav.navbar .logo h2 {
   font-size: 24px;
   font-weight: 700;
-  background: linear-gradient(90deg, var(--text-primary), var(--accent-cyan), var(--primary-cyan));
+  background: linear-gradient(90deg, var(--text-primary, #FFFFFF), var(--accent-cyan, #FFC76A), var(--primary-cyan, #FF7A00));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -64,7 +64,7 @@ nav.navbar .logo h2 {
 
 nav.navbar .logo p {
   font-size: 11px;
-  color: var(--text-secondary);
+  color: var(--text-secondary, #BFC7D5);
   letter-spacing: 0.3px;
 }
 
@@ -77,7 +77,7 @@ nav.navbar .nav-links {
 
 nav.navbar .nav-links li {
   cursor: pointer;
-  color: var(--text-secondary);
+  color: var(--text-secondary, #BFC7D5);
   font-size: 15px;
   font-weight: 500;
   transition: 0.3s ease;
@@ -85,7 +85,7 @@ nav.navbar .nav-links li {
 
 nav.navbar .nav-links li:hover,
 nav.navbar .nav-links .active {
-  color: var(--primary-cyan);
+  color: var(--primary-cyan, #FF7A00);
   text-shadow: 0 0 12px rgba(255, 122, 0, 0.45);
 }
 
