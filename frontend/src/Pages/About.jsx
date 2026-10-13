@@ -18,6 +18,7 @@ import BackButton from "../components/BackButton";
 
 import "./Home.css";
 import "./About.css";
+import Header from "../components/Header";
 
 // import aboutVideo from "./video/K_Shala_Introduction_test_2_with_captions (2).mp4";
 
@@ -100,44 +101,7 @@ const About = () => {
     <div className="homepage about-page">
 
       {/* NAVBAR */}
-      <nav className="navbar">
-
-        <Link to="/" className="logo about-logo-link">
-
-          <div className="logo-box">
-            <img
-              src={logo}
-              alt="K-Shala logo"
-              className="logo-img"
-            />
-          </div>
-
-          <div>
-            <h2>K-Shala</h2>
-            <p>Learn Today, Lead Tomorrow</p>
-          </div>
-
-        </Link>
-
-        <ul className="nav-links">
-
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-
-          <li>
-            <Link to="/servicespage">Services</Link>
-          </li>
-
-          <li className="active">About</li>
-
-          <li>
-            <Link to="/contact">Contact</Link>
-          </li>
-
-        </ul>
-
-      </nav>
+      <Header />
 
       {/* MAIN CONTENT */}
       <main className="about-main">

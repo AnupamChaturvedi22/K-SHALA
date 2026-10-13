@@ -8,6 +8,8 @@ import GlobalDotGrid from "./components/GlobalDotGrid";
 
 const Home = lazy(() => import("./Pages/Home"));
 
+const SyllabusPage = lazy(() => import("./components/SyllabusPage"));
+
 const ServicesPage = lazy(() =>
   import("./Pages/ServicesPage")
 );
@@ -43,6 +45,9 @@ const DotNetSyllabus = lazy(() =>
 const PythonSyllabus = lazy(() =>
   import("./Pages/PythonSyllabus")
 );
+
+const MechanicalCourses = lazy(() => import("./Pages/MechanicalCourses"));
+const MedicalCourses = lazy(() => import("./Pages/MedicalCourses"));
 
 const PrivacyPolicy = lazy(() =>
   import("./Pages/PrivacyPolicy")
@@ -118,6 +123,9 @@ function App() {
               element={<ServicesPage />}
             />
 
+            <Route path="/mechanical-courses" element={<MechanicalCourses />} />
+            <Route path="/medical-courses" element={<MedicalCourses />} />
+
             {/* ================= IT COURSES ================= */}
 
             <Route
@@ -159,6 +167,8 @@ function App() {
               path="/pythonsyllabus"
               element={<PythonSyllabus />}
             />
+
+            <Route path="/syllabus/:slug" element={<SyllabusPage />} />
 
             {/* ================= LEGAL PAGES ================= */}
 

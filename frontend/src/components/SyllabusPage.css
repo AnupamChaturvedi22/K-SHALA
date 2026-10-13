@@ -1,0 +1,65 @@
+/* Reuse every style from the Java syllabus page (cards, modules, internship...) */
+@import "../Pages/JavaFullStackSyllabus.css";
+
+.syllabus-emoji {
+  font-size: 64px;
+  line-height: 1;
+}
+
+.syllabus-page .left-java h2 {
+  max-width: 160px;
+}
+
+/* New course titles are longer than "Java Full Stack" */
+.syllabus-page .center-title h1 {
+  font-size: 3rem;
+}
+
+.card-emoji {
+  font-size: 30px;
+  line-height: 1;
+  flex: 0 0 auto;
+}
+
+.course-highlights {
+  max-width: 1200px;
+  margin: 0 auto 40px;
+  padding: 24px 28px;
+  text-align: center;
+  border-radius: 18px;
+  background: rgba(8, 20, 40, 0.58);
+  border: 1px solid rgba(255, 140, 0, 0.25);
+  box-shadow: 0 0 22px rgba(255, 140, 0, 0.08);
+}
+
+.course-highlights h3 {
+  color: #ff9d00;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.course-highlights p {
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+@media (max-width: 1100px) {
+  .syllabus-page .center-title h1 {
+    font-size: 2.4rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .syllabus-emoji {
+    font-size: 48px;
+  }
+
+  .syllabus-page .center-title h1 {
+    font-size: 1.9rem;
+  }
+
+  .course-highlights {
+    padding: 18px;
+  }
+}

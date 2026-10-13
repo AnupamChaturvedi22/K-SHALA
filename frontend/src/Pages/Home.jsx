@@ -9,10 +9,8 @@ import {
   FaStar,
   FaQuestionCircle,
 } from "react-icons/fa";
-import { FaBars, FaTimes } from "react-icons/fa";
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import herobg from "./images/Herobg.webp";
-import logo from "./images/Main_logo.jpeg";
 import applink from "./images/applink.webp";
 
 import b1 from "./images/b1.webp";
@@ -29,6 +27,7 @@ import img4 from "./images/class4.webp";
 import img5 from "./images/class5.webp";
 
 import aboutVideo from "./video/K_Shala_Introduction_test_2_with_captions (2).mp4";
+import Header from "../components/Header";
 
 const itServices = [
   {
@@ -154,63 +153,11 @@ const classCards = [
 
 const Home = () => {
   const videoSectionRef = useRef(null);
-  const [menuOpen, setMenuOpen] = useState(false);
   return (
     <div className="homepage">
 
       {/* NAVBAR */}
-<nav className="navbar">
-
-
-
-
-  <div className="logo">
-
-    <div className="logo-box">
-      <img
-        src={logo}
-        alt="K-Shala logo"
-        className="logo-img"
-      />
-    </div>
-
-
-
-    <div>
-      <h2>K-Shala</h2>
-      <p>Learn Today, Lead Tomorrow</p>
-    </div>
-
-  </div>
-
-  {/* Burger Icon */}
-  <div
-    className="menu-icon"
-    onClick={() => setMenuOpen(!menuOpen)}
-  >
-    {menuOpen ? <FaTimes /> : <FaBars />}
-  </div>
-
-  {/* Nav Links */}
-  <ul className={menuOpen ? "nav-links active-menu" : "nav-links"}>
-
-    <li className="active">Home</li>
-
-    <li onClick={() => setMenuOpen(false)}>
-      <Link to="/servicespage">Services</Link>
-    </li>
-
-    <li onClick={() => setMenuOpen(false)}>
-      <Link to="/about">About</Link>
-    </li>
-
-    <li onClick={() => setMenuOpen(false)}>
-      <Link to="/contact">Contact</Link>
-    </li>
-
-  </ul>
-
-</nav>
+      <Header />
 
       {/* HERO SECTION */}
       <section className="hero-section">

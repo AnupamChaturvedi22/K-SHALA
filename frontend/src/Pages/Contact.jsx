@@ -5,11 +5,11 @@ import {
   FaPhoneAlt,
   FaMapMarkerAlt,
 } from "react-icons/fa";
-import logo from "./images/Main_logo.jpeg";
 import Footer from "./Footer";
 import BackButton from "../components/BackButton";
 import "./Home.css";
 import "./Contact.css";
+import Header from "../components/Header";
 
 const API_URL =
   import.meta.env.VITE_API_URL || "https://k-shala.onrender.com";
@@ -165,38 +165,7 @@ const Contact = () => {
     <div className="homepage contact-page">
 
 
-      <nav className="navbar">
-        <Link to="/" className="logo contact-logo-link">
-          <div className="logo-box">
-            <img
-              src={logo}
-              alt="K-Shala logo"
-              className="logo-img"
-            />
-          </div>
-
-          <div>
-            <h2>K-Shala</h2>
-            <p>Learn Today, Lead Tomorrow</p>
-          </div>
-        </Link>
-
-        <ul className="nav-links">
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-
-          <li>
-            <Link to="/servicespage">Services</Link>
-          </li>
-
-          <li>
-            <Link to="/about">About</Link>
-          </li>
-
-          <li className="active">Contact</li>
-        </ul>
-      </nav>
+      <Header />
 
 
 

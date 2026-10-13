@@ -1,10 +1,12 @@
-import { Clock3, BadgeCheck,  FolderKanban} from "lucide-react";
+import { Clock3, BadgeCheck, FolderKanban } from "lucide-react";
 import React from "react";
 import "./ServicesPage.css";
 import bg2 from "./images/bg2.webp";
 import { Link, useNavigate } from "react-router-dom";
 import BackButton from "../components/BackButton";
 import Footer from "./Footer";
+import CourseCard from "../components/CourseCard";
+import { itCourses } from "../data/courseCatalog";
 
 const ServicesPage = () => {
   const navigate = useNavigate();
@@ -124,10 +126,10 @@ const ServicesPage = () => {
             </div>
 
             <div className="card-buttons">
-               <Link to="/javafullstacksyllabus">
-              <button className="outline-btn">
-                View Details
-              </button>
+              <Link to="/javafullstacksyllabus">
+                <button className="outline-btn">
+                  View Details
+                </button>
               </Link>
 
               <button
@@ -484,9 +486,12 @@ const ServicesPage = () => {
               </button>
             </div>
           </div>
+          {itCourses.map((course) => (
+            <CourseCard key={course.slug} course={course} />
+          ))}
         </div>
       </section>
-      <Footer/>
+      <Footer />
     </div>
   );
 };
