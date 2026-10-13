@@ -1,6 +1,10 @@
+/* All rules are scoped under "nav.navbar" on purpose: this makes them win over the
+   older .navbar / .homepage > * rules in Home.css no matter which stylesheet loads
+   last (otherwise the navbar loses its z-index and the hero image covers the dropdown). */
+
 /* ==================== HEADER / NAVBAR ==================== */
 
-.navbar {
+nav.navbar {
   width: 100%;
   padding: 18px 60px;
   display: flex;
@@ -15,18 +19,18 @@
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.25);
 }
 
-.logo {
+nav.navbar .logo {
   display: flex;
   align-items: center;
   gap: 14px;
 }
 
-.header-logo-link {
+nav.navbar .header-logo-link {
   text-decoration: none;
   color: inherit;
 }
 
-.logo-box {
+nav.navbar .logo-box {
   width: 50px;
   height: 50px;
   overflow: hidden;
@@ -41,14 +45,14 @@
     0 0 24px rgba(0, 207, 255, 0.08);
 }
 
-.logo-img {
+nav.navbar .logo-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
 }
 
-.logo h2 {
+nav.navbar .logo h2 {
   font-size: 24px;
   font-weight: 700;
   background: linear-gradient(90deg, var(--text-primary), var(--accent-cyan), var(--primary-cyan));
@@ -58,20 +62,20 @@
   line-height: 1.2;
 }
 
-.logo p {
+nav.navbar .logo p {
   font-size: 11px;
   color: var(--text-secondary);
   letter-spacing: 0.3px;
 }
 
-.nav-links {
+nav.navbar .nav-links {
   display: flex;
   list-style: none;
   gap: 32px;
   align-items: center;
 }
 
-.nav-links li {
+nav.navbar .nav-links li {
   cursor: pointer;
   color: var(--text-secondary);
   font-size: 15px;
@@ -79,13 +83,13 @@
   transition: 0.3s ease;
 }
 
-.nav-links li:hover,
-.nav-links .active {
+nav.navbar .nav-links li:hover,
+nav.navbar .nav-links .active {
   color: var(--primary-cyan);
   text-shadow: 0 0 12px rgba(255, 122, 0, 0.45);
 }
 
-.nav-links a {
+nav.navbar .nav-links a {
   color: inherit;
   text-decoration: none;
   display: block;
@@ -93,7 +97,7 @@
 
 /* ================= BURGER MENU ================= */
 
-.menu-icon {
+nav.navbar .menu-icon {
   display: none;
   font-size: 26px;
   color: white;
@@ -103,11 +107,11 @@
 
 /* ================= SERVICES DROPDOWN ================= */
 
-.has-dropdown {
+nav.navbar .has-dropdown {
   position: relative;
 }
 
-.dropdown-toggle {
+nav.navbar .dropdown-toggle {
   background: none;
   border: none;
   color: inherit;
@@ -119,16 +123,16 @@
   padding: 0;
 }
 
-.dropdown-caret {
+nav.navbar .dropdown-caret {
   font-size: 11px;
   transition: transform 0.25s ease;
 }
 
-.has-dropdown.open .dropdown-caret {
+nav.navbar .has-dropdown.open .dropdown-caret {
   transform: rotate(180deg);
 }
 
-.dropdown-menu {
+nav.navbar .dropdown-menu {
   position: absolute;
   top: calc(100% + 16px);
   left: 50%;
@@ -153,7 +157,7 @@
 }
 
 /* invisible bridge so the menu doesn't close while moving the mouse down */
-.dropdown-menu::before {
+nav.navbar .dropdown-menu::before {
   content: "";
   position: absolute;
   top: -16px;
@@ -162,20 +166,20 @@
   height: 16px;
 }
 
-.dropdown-menu li {
+nav.navbar .dropdown-menu li {
   white-space: nowrap;
   border-radius: 8px;
 }
 
-.dropdown-menu li a {
+nav.navbar .dropdown-menu li a {
   padding: 10px 14px;
 }
 
-.dropdown-menu li:hover {
+nav.navbar .dropdown-menu li:hover {
   background: rgba(255, 122, 0, 0.1);
 }
 
-.has-dropdown.open .dropdown-menu {
+nav.navbar .has-dropdown.open .dropdown-menu {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
@@ -183,8 +187,8 @@
 }
 
 /* keyboard focus ring for the Services button */
-.dropdown-toggle:focus-visible,
-.dropdown-menu a:focus-visible {
+nav.navbar .dropdown-toggle:focus-visible,
+nav.navbar .dropdown-menu a:focus-visible {
   outline: 2px solid var(--primary-orange, #ff7a00);
   outline-offset: 4px;
   border-radius: 6px;
@@ -193,23 +197,23 @@
 /* ================= MOBILE ================= */
 
 @media (max-width: 768px) {
-  .navbar {
+  nav.navbar {
     padding: 16px 20px;
   }
 
-  .logo h2 {
+  nav.navbar .logo h2 {
     font-size: 20px;
   }
 
-  .logo p {
+  nav.navbar .logo p {
     font-size: 10px;
   }
 
-  .menu-icon {
+  nav.navbar .menu-icon {
     display: block;
   }
 
-  .nav-links {
+  nav.navbar .nav-links {
     position: absolute;
     top: 100%;
     left: -100%;
@@ -227,33 +231,33 @@
     z-index: 999;
   }
 
-  .nav-links.active-menu {
+  nav.navbar .nav-links.active-menu {
     left: 0;
   }
 
-  .nav-links li {
+  nav.navbar .nav-links li {
     width: 100%;
     text-align: center;
     font-size: 20px;
   }
 
-  .nav-links a {
+  nav.navbar .nav-links a {
     width: 100%;
     display: block;
   }
 
   /* Services dropdown becomes an accordion on mobile */
-  .has-dropdown {
+  nav.navbar .has-dropdown {
     text-align: center;
   }
 
-  .dropdown-toggle {
+  nav.navbar .dropdown-toggle {
     justify-content: center;
     width: 100%;
     font-size: 20px;
   }
 
-  .dropdown-menu {
+  nav.navbar .dropdown-menu {
     position: static;
     transform: none;
     min-width: 0;
@@ -269,18 +273,18 @@
     pointer-events: auto;
   }
 
-  .dropdown-menu::before {
+  nav.navbar .dropdown-menu::before {
     display: none;
   }
 
-  .has-dropdown.open .dropdown-menu {
+  nav.navbar .has-dropdown.open .dropdown-menu {
     display: flex;
     transform: none;
     margin-top: 16px;
     gap: 12px;
   }
 
-  .dropdown-menu li {
+  nav.navbar .dropdown-menu li {
     font-size: 17px;
   }
 }
