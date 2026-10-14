@@ -48,6 +48,7 @@ const PythonSyllabus = lazy(() =>
 
 const MechanicalCourses = lazy(() => import("./Pages/MechanicalCourses"));
 const MedicalCourses = lazy(() => import("./Pages/MedicalCourses"));
+const CivilCourses = lazy(() => import("./Pages/CivilCourses"));
 
 const PrivacyPolicy = lazy(() =>
   import("./Pages/PrivacyPolicy")
@@ -125,6 +126,7 @@ function App() {
 
             <Route path="/mechanical-courses" element={<MechanicalCourses />} />
             <Route path="/medical-courses" element={<MedicalCourses />} />
+            <Route path="/civil-courses" element={<CivilCourses />} />
 
             {/* ================= IT COURSES ================= */}
 
