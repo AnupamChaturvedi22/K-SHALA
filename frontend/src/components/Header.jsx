@@ -6,9 +6,9 @@ import "./Header.css";
 
 const SERVICE_ITEMS = [
   { label: "IT Courses", to: "/servicespage" },
-  { label: "Mechanical Courses", to: "/mechanical-courses" },
-  { label: "Civil Courses", to: "/civil-courses" },
-  { label: "Medical Courses", to: "/medical-courses" },
+  { label: "Mechanical Engineering Courses", to: "/mechanical-courses" },
+  { label: "Civil Engineering Courses", to: "/civil-courses" },
+  { label: "Medical Coding (Pharmacy)", to: "/medical-courses" },
 ];
 
 // Desktop with a real mouse -> dropdown opens on hover.
