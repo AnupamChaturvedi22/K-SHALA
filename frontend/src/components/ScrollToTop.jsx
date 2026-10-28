@@ -28,4 +28,4 @@ export default function ScrollToTop() {
   }, [pathname, hash]);
 
   return null;
-}git 
+}
