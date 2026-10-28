@@ -72,7 +72,7 @@ export const itCourses = [
   ),
   make(
     "mobile-development",
-    "Mobile Development",
+    "Mobile Application Development",
     "Android, Flutter & Firebase",
     "Build Android and Flutter apps with Kotlin, Dart, REST APIs, Firebase and Play Store deployment.",
     "M"

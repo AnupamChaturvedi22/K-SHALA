@@ -2090,9 +2090,9 @@ export const syllabi = {
     },
     "mobile-development": {
       "slug": "mobile-development",
-      "short": "Mobile Dev",
+      "short": "Mobile Application Developer",
       "emoji": "📱",
-      "title": "Mobile Development Course Syllabus",
+      "title": "Mobile Application Development Course Syllabus",
       "intro": "Complete industry-oriented Mobile Development training program with Android, Kotlin, Java, Flutter, Dart, UI/UX, APIs, databases, Firebase, Git, testing, deployment, AI integration, projects, aptitude, and internship.",
       "modules": [
         {
