@@ -78,6 +78,26 @@ const itServices = [
     img: "/testingImg.jpg",
     link: "/softwaretestingsyllabus",
   },
+
+  // ===== Engineering & Medical =====
+  {
+    title: "Mechanical Design",
+    subtitle: "CAD & 3D Modeling",
+    img: "/mechanicalImg.svg",
+    link: "/mechanical-courses",
+  },
+  {
+    title: "Civil Design",
+    subtitle: "Design & Drafting",
+    img: "/civilImg.svg",
+    link: "/civil-courses",
+  },
+  {
+    title: "Medical Coding",
+    subtitle: "Pharmacy & Healthcare",
+    img: "/medicalImg.svg",
+    link: "/medical-courses",
+  },
 ];
 
 const featureCards = [
@@ -345,7 +365,7 @@ const Home = () => {
     <section className="classes-section">
 
   <h2>
-    Explore <span>IT Services</span>
+    Explore <span>Courses</span>
   </h2>
 
   <div className="marquee">

@@ -31,7 +31,7 @@ body {
 
 .homepage {
   color: var(--text-primary);
-  overflow-x: hidden;
+  overflow-x: clip;
   position: relative;
   min-height: 100vh;
   background:
@@ -820,69 +820,51 @@ body {
 .about-side-video {
   width: 100%;
   max-width: 1350px;
-  height: 750px;
+  height: auto;                 /* no fixed height */
+  aspect-ratio: 16 / 9;         /* keeps the video's natural shape */
+  max-height: 90dvh;            /* never taller than the visible screen */
+  object-fit: contain;          /* show the whole video, no cropping */
+  display: block;
   border-radius: 24px;
   overflow: hidden;
-  object-fit: cover;
   border: 3px solid rgba(255, 255, 255, 0.1);
   background: #000;
   box-shadow:
     0 10px 30px rgba(0, 0, 0, 0.25),
     0 0 20px rgba(255, 255, 255, 0.08);
 }
+
 /* ================= MOBILE RESPONSIVE ================= */
 
 @media (max-width: 992px) {
-
-  .about-right-section {
-    padding: 40px 15px;
-  }
-
-  .about-side-video {
-    width: 100%;
-    max-width: 100%;
-
-    height: 500px;
-
-    border-radius: 20px;
-  }
-
+  .about-right-section { padding: 40px 15px; }
+  .about-side-video { border-radius: 20px; }
 }
 
 @media (max-width: 768px) {
-
-  .about-right-section {
-    padding: 30px 12px;
-  }
-
+  .about-right-section { padding: 30px 12px; }
   .about-side-video {
-    width: 100%;
-
-    height: 320px;
-
     border-radius: 18px;
-
     border: 2px solid rgba(255, 255, 255, 0.08);
-
     box-shadow:
       0 8px 20px rgba(0, 0, 0, 0.22),
       0 0 14px rgba(255, 255, 255, 0.06);
   }
-
 }
 
 @media (max-width: 480px) {
+  .about-right-section { padding: 20px 10px; }
+  .about-side-video { border-radius: 16px; }
+}
 
-  .about-right-section {
-    padding: 20px 10px;
-  }
-
+/* Phone in landscape: use the full visible height */
+@media (orientation: landscape) and (max-height: 500px) {
+  .about-right-section { padding: 10px; }
   .about-side-video {
-    height: 240px;
-
-    border-radius: 16px;
+    max-height: 95dvh;
+    width: auto;
+    max-width: 100%;
   }
-
 }
 
 /* ==================== FEATURES SECTION ==================== */
@@ -1496,5 +1478,3 @@ body {
   }
 }
 /* ================= BURGER MENU ================= */
-
-

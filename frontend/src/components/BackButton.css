@@ -1,156 +1,169 @@
 /* =========================
    BACK BUTTON SLOT
+   Top-left of the page, scrolls away with the content
 ========================= */
 
-.back-button-slot {
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  z-index: 999;
-}
-
-/* =========================
-   BACK BUTTON
-========================= */
-
-.back-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-
-  padding: 10px 20px;
-  max-width: calc(100vw - 40px);
-
-  border: 1px solid rgba(255, 122, 0, 0.3);
-  border-radius: 50px;
-
-  background: rgba(8, 20, 40, 0.82);
-
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-
-  color: #ffffff;
-  font-size: 15px;
-  font-weight: 600;
-  font-family: inherit;
-
-  cursor: pointer;
-  text-decoration: none;
-  white-space: nowrap;
-
-  box-shadow:
-    0 0 16px rgba(255, 122, 0, 0.12),
-    0 0 30px rgba(0, 207, 255, 0.04);
-
-  transition:
-    transform 0.25s ease,
-    border-color 0.25s ease,
-    box-shadow 0.25s ease,
-    color 0.25s ease,
-    background 0.25s ease;
-}
-
-/* =========================
-   ICON
-========================= */
-
-.back-button-icon {
-  font-size: 15px;
-  color: #ff7a00;
-
-  transition: transform 0.25s ease;
-}
-
-/* =========================
-   HOVER
-========================= */
-
-.back-button:hover {
-  transform: translateY(-2px);
-
-  border-color: rgba(255, 122, 0, 0.55);
-
-  background: rgba(12, 28, 52, 0.95);
-
-  color: #ffc76a;
-
-  box-shadow:
-    0 0 24px rgba(255, 122, 0, 0.22),
-    0 0 35px rgba(0, 207, 255, 0.08);
-}
-
-.back-button:hover .back-button-icon {
-  transform: translateX(-3px);
-}
-
-/* =========================
-   ACTIVE
-========================= */
-
-.back-button:active {
-  transform: scale(0.98);
-}
-
-/* =========================
-   MOBILE
-========================= */
-
-@media (max-width: 768px) {
-
-  .back-button-slot {
-    top: 14px;
-    left: 14px;
+/* "div." raises specificity so rules like ".syllabus-container > *"
+   can no longer change the slot's position or z-index */
+   div.back-button-slot {
+    position: relative;
+    z-index: 50;
+  
+    display: flex;
+    justify-content: flex-start;
+    align-self: flex-start;
+  
+    margin: 0 0 16px 0;
   }
-
+  
+  /* =========================
+     BACK BUTTON
+  ========================= */
+  
   .back-button {
-    padding: 8px 16px;
-    font-size: 14px;
-    gap: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  
+    padding: 10px 20px;
+    max-width: calc(100vw - 40px);
+  
+    border: 1px solid rgba(255, 122, 0, 0.3);
+    border-radius: 50px;
+  
+    background: rgba(8, 20, 40, 0.82);
+  
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 600;
+    font-family: inherit;
+  
+    cursor: pointer;
+    text-decoration: none;
+    white-space: nowrap;
+  
+    touch-action: manipulation;              /* no tap delay */
+    -webkit-tap-highlight-color: transparent;
+  
+    box-shadow:
+      0 0 16px rgba(255, 122, 0, 0.12),
+      0 0 30px rgba(0, 207, 255, 0.04);
+  
+    transition:
+      transform 0.25s ease,
+      border-color 0.25s ease,
+      box-shadow 0.25s ease,
+      color 0.25s ease,
+      background 0.25s ease;
   }
-
+  
+  /* =========================
+     ICON
+  ========================= */
+  
   .back-button-icon {
-    font-size: 14px;
+    font-size: 15px;
+    color: #ff7a00;
+  
+    transition: transform 0.25s ease;
   }
-}
-
-/* =========================
-   SMALL DEVICES
-========================= */
-
-@media (max-width: 480px) {
-
-  .back-button-slot {
-    top: 12px;
-    left: 12px;
+  
+  /* =========================
+     HOVER
+     Only on devices that really hover, so the first tap
+     on a phone is a click, not a hover.
+  ========================= */
+  
+  @media (hover: hover) and (pointer: fine) {
+    .back-button:hover {
+      transform: translateY(-2px);
+  
+      border-color: rgba(255, 122, 0, 0.55);
+  
+      background: rgba(12, 28, 52, 0.95);
+  
+      color: #ffc76a;
+  
+      box-shadow:
+        0 0 24px rgba(255, 122, 0, 0.22),
+        0 0 35px rgba(0, 207, 255, 0.08);
+    }
+  
+    .back-button:hover .back-button-icon {
+      transform: translateX(-3px);
+    }
   }
-
-  .back-button {
-    padding: 7px 14px;
-    font-size: 13px;
+  
+  /* =========================
+     ACTIVE
+  ========================= */
+  
+  .back-button:active {
+    transform: scale(0.98);
   }
-
-  .back-button-icon {
-    font-size: 13px;
+  
+  .back-button:focus-visible {
+    outline: 2px solid #ffc76a;
+    outline-offset: 2px;
   }
-}
-
-/* =========================
-   REDUCED MOTION
-========================= */
-
-@media (prefers-reduced-motion: reduce) {
-
-  .back-button,
-  .back-button-icon {
-    transition: none;
+  
+  /* =========================
+     MOBILE
+  ========================= */
+  
+  @media (max-width: 768px) {
+  
+    div.back-button-slot {
+      margin-bottom: 12px;
+    }
+  
+    .back-button {
+      padding: 8px 16px;
+      font-size: 14px;
+      gap: 8px;
+    }
+  
+    .back-button-icon {
+      font-size: 14px;
+    }
   }
-
-  .back-button:hover {
-    transform: none;
+  
+  /* =========================
+     SMALL DEVICES
+  ========================= */
+  
+  @media (max-width: 480px) {
+  
+    .back-button {
+      padding: 7px 14px;
+      font-size: 13px;
+    }
+  
+    .back-button-icon {
+      font-size: 13px;
+    }
   }
-
-  .back-button:hover .back-button-icon {
-    transform: none;
+  
+  /* =========================
+     REDUCED MOTION
+  ========================= */
+  
+  @media (prefers-reduced-motion: reduce) {
+  
+    .back-button,
+    .back-button-icon {
+      transition: none;
+    }
+  
+    .back-button:hover {
+      transform: none;
+    }
+  
+    .back-button:hover .back-button-icon {
+      transform: none;
+    }
   }
-}

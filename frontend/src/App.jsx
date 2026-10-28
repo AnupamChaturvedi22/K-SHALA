@@ -1,6 +1,7 @@
 import React, { Suspense, lazy } from "react";
 import { Routes, Route } from "react-router-dom";
 import GlobalDotGrid from "./components/GlobalDotGrid";
+import ScrollToTop from "./components/ScrollToTop";
 
 // =====================
 // Lazy Loaded Pages
@@ -81,6 +82,9 @@ const EnrollmentPage = lazy(() =>
 function App() {
   return (
     <div className="App">
+
+      {/* Scroll to top on every page change */}
+      <ScrollToTop />
 
       {/* Background Animation */}
       <div

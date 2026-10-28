@@ -90,83 +90,88 @@ const Header = () => {
   };
 
   return (
-    <nav className="navbar">
-      {/* Logo */}
-      <Link to="/" className="logo header-logo-link" onClick={closeAll}>
-        <div className="logo-box">
-          <img src={logo} alt="K-Shala logo" className="logo-img" />
-        </div>
-        <div>
-          <h2>K-Shala</h2>
-          <p>Learn Today, Lead Tomorrow</p>
-        </div>
-      </Link>
+    <>
+      <nav className="navbar">
+        {/* Logo */}
+        <Link to="/" className="logo header-logo-link" onClick={closeAll}>
+          <div className="logo-box">
+            <img src={logo} alt="K-Shala logo" className="logo-img" />
+          </div>
+          <div>
+            <h2>K-Shala</h2>
+            <p>Learn Today, Lead Tomorrow</p>
+          </div>
+        </Link>
 
-      {/* Burger Icon (mobile) */}
-      <div
-        className="menu-icon"
-        onClick={toggleBurger}
-        role="button"
-        aria-label="Toggle menu"
-        aria-expanded={menuOpen}
-      >
-        {menuOpen ? <FaTimes /> : <FaBars />}
-      </div>
-
-      {/* Nav Links */}
-      <ul className={menuOpen ? "nav-links active-menu" : "nav-links"}>
-        <li className={isActive("/") ? "active" : undefined}>
-          <Link to="/" onClick={closeAll}>
-            Home
-          </Link>
-        </li>
-
-        {/* Services dropdown */}
-        <li
-          ref={servicesRef}
-          className={
-            "has-dropdown" +
-            (servicesActive ? " active" : "") +
-            (servicesOpen ? " open" : "")
-          }
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
-          onBlur={handleBlur}
+        {/* Burger Icon (mobile) */}
+        <div
+          className="menu-icon"
+          onClick={toggleBurger}
+          role="button"
+          aria-label="Toggle menu"
+          aria-expanded={menuOpen}
         >
-          <button
-            type="button"
-            className="dropdown-toggle"
-            aria-haspopup="true"
-            aria-expanded={servicesOpen}
-            onClick={handleToggleClick}
+          {menuOpen ? <FaTimes /> : <FaBars />}
+        </div>
+
+        {/* Nav Links */}
+        <ul className={menuOpen ? "nav-links active-menu" : "nav-links"}>
+          <li className={isActive("/") ? "active" : undefined}>
+            <Link to="/" onClick={closeAll}>
+              Home
+            </Link>
+          </li>
+
+          {/* Services dropdown */}
+          <li
+            ref={servicesRef}
+            className={
+              "has-dropdown" +
+              (servicesActive ? " active" : "") +
+              (servicesOpen ? " open" : "")
+            }
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+            onBlur={handleBlur}
           >
-            Services <FaChevronDown className="dropdown-caret" />
-          </button>
+            <button
+              type="button"
+              className="dropdown-toggle"
+              aria-haspopup="true"
+              aria-expanded={servicesOpen}
+              onClick={handleToggleClick}
+            >
+              Courses <FaChevronDown className="dropdown-caret" />
+            </button>
 
-          <ul className="dropdown-menu">
-            {SERVICE_ITEMS.map(({ label, to }) => (
-              <li key={to} className={isActive(to) ? "active" : undefined}>
-                <Link to={to} onClick={closeAll}>
-                  {label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </li>
+            <ul className="dropdown-menu">
+              {SERVICE_ITEMS.map(({ label, to }) => (
+                <li key={to} className={isActive(to) ? "active" : undefined}>
+                  <Link to={to} onClick={closeAll}>
+                    {label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </li>
 
-        <li className={isActive("/about") ? "active" : undefined}>
-          <Link to="/about" onClick={closeAll}>
-            About
-          </Link>
-        </li>
+          <li className={isActive("/about") ? "active" : undefined}>
+            <Link to="/about" onClick={closeAll}>
+              About
+            </Link>
+          </li>
 
-        <li className={isActive("/contact") ? "active" : undefined}>
-          <Link to="/contact" onClick={closeAll}>
-            Contact
-          </Link>
-        </li>
-      </ul>
-    </nav>
+          <li className={isActive("/contact") ? "active" : undefined}>
+            <Link to="/contact" onClick={closeAll}>
+              Contact
+            </Link>
+          </li>
+        </ul>
+      </nav>
+
+      {/* The navbar is fixed, so this spacer keeps page content from sliding under it */}
+      <div className="navbar-spacer" aria-hidden="true" />
+    </>
   );
 };
 

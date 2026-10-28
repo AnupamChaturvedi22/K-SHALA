@@ -221,8 +221,8 @@
   .legal-container {
     width: 100%;
     min-height: 100vh;
-    overflow-x: hidden;
-    overflow-y: auto;
+    overflow-x: clip;
+    overflow-y: visible;
     padding: 20px;
     box-sizing: border-box;
   }
@@ -260,13 +260,7 @@
 
 /* ===== FINAL MOBILE FIX ===== */
 
-html,
-body {
-  overflow-x: hidden;
-  overflow-y: auto;
-  height: auto;
-  min-height: 100%;
-}
+/* removed: html, body { overflow-y: auto } (caused double scrollbars) */
 
 body {
   margin: 0;
@@ -276,8 +270,8 @@ body {
 .legal-page {
   width: 100%;
   min-height: 100vh;
-  overflow-x: hidden;
-  overflow-y: auto;
+  overflow-x: clip;
+  overflow-y: visible;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -291,7 +285,7 @@ body {
   margin: 0 auto;
   padding: 20px 24px 60px;
   box-sizing: border-box;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 /* =========================
    MOBILE FIX
@@ -301,14 +295,14 @@ body {
 
   .legal-page {
     width: 100%;
-    overflow-x: hidden;
+    overflow-x: clip;
   }
 
   .legal-main {
     width: 100%;
     max-width: 100%;
     padding: 20px 16px 60px;
-    overflow-x: hidden;
+    overflow-x: clip;
   }
 
   .legal-section {
