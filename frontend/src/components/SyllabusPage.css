@@ -1,13 +1,25 @@
 /* Reuse every style from the Java syllabus page (cards, modules, internship...) */
 @import "../Pages/JavaFullStackSyllabus.css";
 
+/* Icon + course name: stacked and centered, for every course */
+.syllabus-page .left-java {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
 .syllabus-emoji {
   font-size: 64px;
   line-height: 1;
 }
 
 .syllabus-page .left-java h2 {
-  max-width: 160px;
+  max-width: 220px;
+  margin-left: auto;      /* centers the h2 box itself (max-width kept it on the left) */
+  margin-right: auto;
+  text-align: center;
 }
 
 /* New course titles are longer than "Java Full Stack" */
@@ -53,6 +65,10 @@
 @media (max-width: 768px) {
   .syllabus-emoji {
     font-size: 48px;
+  }
+
+  .syllabus-page .left-java h2 {
+    max-width: 100%;      /* full width on phones, centered under the icon */
   }
 
   .syllabus-page .center-title h1 {
